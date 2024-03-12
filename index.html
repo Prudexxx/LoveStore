@@ -19,9 +19,15 @@
             <option  value="Нужно подумать">Нужно подумать</option>
             <option  value="Да я готова, но у меня есть условия">Да я готова, но у меня есть условия</option>
             <option  value="Я решила быть одна">Я решила быть одна</option>
+            <option  value="Свой вариант ответа напишу ниже">Свой вариант ответа напишу ниже</option>
         </select>
         <br>
         
+       
+          
+        <br>
+        <p>Свой вариант ответа:</p>
+        <input  id="name" style="width: 200px; height: 50px; margin: 10px;" name="name"  maxlength="400" type="text">
         <br>
         <button class="buttonn">Отправить </button>
           </form>
@@ -35,6 +41,8 @@
             e.preventDefault();
     
             let mess = `<b>${this.prof.value }</b>\n`;
+            
+         mess += `<b>${this.name.value }</b>\n`;
            
          
             console.log(mess)
