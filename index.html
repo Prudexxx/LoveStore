@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <div class="notification__form">
+        <form id="form">
+            <p>Хочешь ли ты продолжить отношения?</p>
+    
+        <select  style="width: 200px; height: 30px;margin: 10px;" id="sel" name="prof" class="prof">
+            <option  value="да">Да</option>
+            <option  value="нет">Нет </option>
+            <option  value="Я это смогу понять только поговорив с тобою">Я это смогу понять только после разговора с тобою</option>
+            <option  value="поздно я уже нашла другого">поздно я уже нашла другого</option>
+            <option  value="Отвечу при встече">Отвечу при встече</option>
+            <option  value="Нужно подумать">Нужно подумать</option>
+            <option  value="Да я готова, но у меня есть условия">Да я готова, но у меня есть условия</option>
+            <option  value="Я решила быть одна">Я решила быть одна</option>
+        </select>
+        <br>
+        
+        <br>
+        <button class="buttonn">Отправить </button>
+          </form>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const TOKEN = "6731657906:AAGCKDw_41ec9uYvZuIgDsnNVoU5KUsEWco";
+        const CHAT_ID = "-1002123434386";
+        const API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`;
+        document.getElementById('form').addEventListener('submit', function(e){
+            e.preventDefault();
+    
+            let mess = `<b>${this.prof.value }</b>\n`;
+           
+         
+            console.log(mess)
+            document.querySelector('.notification__form select').value = '' ;
+            
+            axios.post(API,{
+                chat_id: CHAT_ID,
+                parse_mode:'html',
+                text: mess
+            })
+    
+        })
+    </script>
+</body>
+</html>
